@@ -6,7 +6,7 @@
     <img src="images/default.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Animal Fact Generator Microservice</h3>
+<h3 align="center">Animal Fact Generator</h3>
 
   <p align="center">
     A Flask microservice that provides random animal facts.
@@ -14,7 +14,7 @@
     <a href="https://github.com/github_olivia/repo_name"><strong>Explore the docs »</strong></a>
     <br /> -->
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/github_olivia-cruz/animal-facts">View Demo</a>
     ·
     <!-- <a href="https://github.com/github_username/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a> -->
     <!-- ·
@@ -36,13 +36,21 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#how-to-receive-your-fact">How to Receive your Fact</a></li>
+        <li><a href="how-to-make-a-request">How to Make a Request</a></li>
       </ul>
     </li>
-        <li><a href="#make-a-request">How to Make a Request</a></li>
-        <li><a href="#receiving-data">Receiving your Data</a></li>
+        <!-- <li><a href="#how-to-make-a-request">How to Make a Request</a></li> -->
+        <!-- <li><a href="#how-to-receive-your-fact">How to Receive your Fact</a></li> -->
       </ul>
     </li>
-      
+            <!-- <a href="how-to-make-a-request">How to Make a Request</a> -->
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+
+
     <li><a href="#receiving-data">Receiving your Data</a></li>
     <!-- <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
