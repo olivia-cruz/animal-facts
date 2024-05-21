@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/github_olivia-cruz/animal-facts">
-    <img src="template/default.png" alt="Logo" width="80" height="80">
+    <img src="images/default.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Animal Fact Generator Microservice</h3>
