@@ -78,3 +78,5 @@ response = requests.get('http://localhost:5001/facts/random')
 data = response.json()
 print(data)  # Prints the random animal fact received
 ```
+
+![Alt text](UML.png)
