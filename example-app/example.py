@@ -1,7 +1,7 @@
 import requests
 
 def get_random_fact():
-    response = requests.get('http://localhost:5001/facts/random')
+    response = requests.get('http://localhost:5001/facts')
     data = response.json()
     return data
 

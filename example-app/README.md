@@ -3,7 +3,7 @@ Application that uses the animal-facts microservice to get a random fact and pri
 
 ## Instructions
 1. Install and run the animal facts app using the instructions in its [README.md](../README.md)
-2. From wihin this directory run this application using
+2. From within this directory run this application using
     ```sh
     python example-app/example.py
     ```
