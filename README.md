@@ -1,108 +1,80 @@
-<a name="readme-top"></a>
+# Animal Fact Generator
+A Flask microservice that provides random animal facts
 
-<br />
-<div align="center">
-  <a href="https://github.com/github_olivia-cruz/animal-facts">
-    <img src="images/default.png" alt="Logo" width="80" height="80">
-  </a>
-
-<h3 align="center">Animal Fact Generator</h3>
-
-  <p align="center">
-    A Flask microservice that provides random animal facts.
-    <!-- <br />
-    <a href="https://github.com/github_olivia/repo_name"><strong>Explore the docs »</strong></a>
-    <br /> -->
-    <br />
-    <a href="https://github.com/github_olivia-cruz/animal-facts">View Demo</a>
-    ·
-    <!-- <a href="https://github.com/github_username/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a> -->
-    <!-- ·
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a> -->
-  </p>
-</div>
-
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#how-to-receive-your-fact">How to Receive your Fact</a></li>
-        <li><a href="how-to-make-a-request">How to Make a Request</a></li>
-      </ul>
-    </li>
-        <!-- <li><a href="#how-to-make-a-request">How to Make a Request</a></li> -->
-        <!-- <li><a href="#how-to-receive-your-fact">How to Receive your Fact</a></li> -->
-      </ul>
-    </li>
-            <!-- <a href="how-to-make-a-request">How to Make a Request</a> -->
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-
-
-    <li><a href="#receiving-data">Receiving your Data</a></li>
-    <!-- <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li> -->
-  </ol>
-</details>
+## Table of Contents
+- [About The Project](#about-the-project)
+    - [Built With](#built-with)
+- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
+- [Initial Setup](#initial-setup)
+- [Running the App](#running-the-app)
+- [How to Make a Request](#how-to-make-a-request)
 
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 This microservice provides random animal facts through a Flask API. It can be integrated into other websites to display fun and educational animal facts.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### Built With
-
-* [![Flask][Flask]][Flask-url]
-* [![Python][Python]][Python-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[Python](https://www.python.org/)
+[Flask](https://flask.palletsprojects.com/en/3.0.x/)
 
 ## Getting Started
-
-To get a local copy up and running follow these simple steps.
+To get a local copy running follow these steps
 
 ### Prerequisites
+Python 3.10  
+I suggest using [Pyenv](https://github.com/pyenv/pyenv) to manage Python installations but it is up to the user.
 
-You need Python installed on your system. You can download it from [python.org](https://www.python.org/).
-
-### Installation
+### Initial Setup
+#### Done On First Setup
 
 1. Clone the repo
    ```sh
    git clone https://github.com/github_olivia-cruz/animal-facts.git
-   cd repo_name
+   cd animal-facts
+   ```
+2. Create a virtual environment (only need to do once)
+    ```sh
+    python -m venv .venv
+    ```
+3. Start the virtual environment
+    ```sh
+    source .venv/bin/activate
+    ```
+4. Install the dependencies (only need to do once)
+    ```sh
+    pip install -r requirements.txt
+    ```
+5. Run the application
+    ```sh
+    python app.py
+    ```
 
-### How to Make a Request
+### Running the App
+#### Used for subsequent runs
+1. Start the virtual environment
+    ```sh
+    source .venv/bin/activate
+    ```
+2.  Run the application
+    ```sh
+    python app.py
+    ```
+
+## How to Make a Request
 
 To request data from the Animal Fact Generator, use the following HTTP GET endpoints:
 - `/facts` returns all animal facts.
-- `/fact/random` returns a random fact.
+- `/facts/random` returns a random fact.
+- `/facts/<animal>` returns a specific fact.
 
 Example call to fetch a random fact using curl:
-```bash
-curl http://localhost:5000/fact/random
-
-### Receiving your Data
+```sh
+curl http://localhost:5001/facts/random
+```
 The data from the microservice is returned in JSON format. Here's how you can handle the JSON response in Python:
 ```python
 import requests
-response = requests.get('http://localhost:5000/fact/random')
+response = requests.get('http://localhost:5001/facts/random')
 data = response.json()
 print(data)  # Prints the random animal fact received
+```

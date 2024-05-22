@@ -1,49 +1,36 @@
-# import json
-# import random
-
-# from flask 
-
-
-# if __name__ == "__main__":
-#     app.run(debug=True)
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify
+# from flask import Flask, jsonify, render_template, request
 import json
 import random
 
-app = Flask(__name__)
-# animal_facts = []
+# Creates the Flask app and loads the json file data and returns both
+def create_app():
+    animal_file = open("animal_facts.json")
+    data = json.load(animal_file)
+    animal_file.close()
+    return Flask(__name__), data
 
-# def create_app():
-#     animal_file = open("animal_facts.json")
-#     data = json.load(animal_file)
-#     for animal, fact in data.items():
-#         animal_facts.append((animal, fact))
-#     return Flask(__name__)
+app, animal_facts = create_app()
 
-# app = create_app()
-
-# @app.route("/facts")
-# def generate_fact():
-#     animal_fact = animal_facts[random.randint(0, 19)]
-#     return f"{animal_fact[0]}: {animal_fact[1]}"
-
-# Load animal facts from the JSON file
-with open('animal_facts.json') as f:
-    animal_facts = json.load(f)
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
+# Get all the animal facts
 @app.route('/facts', methods=['GET'])
 def get_facts():
     return jsonify(animal_facts)
 
-@app.route('/fact/random', methods=['GET'])
+# Get a random animal fact
+@app.route('/facts/random', methods=['GET'])
 def get_random_fact():
     animal = random.choice(list(animal_facts.keys()))
     fact = animal_facts[animal]
     return jsonify({animal: fact})
 
+# Get a specific animal fact
+@app.route('/facts/<animal>', methods=['GET'])
+def get_specific_fact(animal):
+    if animal.lower() not in list(animal_facts.keys()):
+        return "Not Found", 404 
+    fact = animal_facts[animal]
+    return jsonify({animal: fact})
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
