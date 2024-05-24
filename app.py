@@ -1,6 +1,7 @@
-from flask import Flask, jsonify
 import json
 import random
+from flask import Flask, jsonify
+from flask_cors import CORS
 
 # Creates the Flask app and loads the json file data and returns both
 def create_app():
@@ -10,6 +11,8 @@ def create_app():
     return Flask(__name__), data
 
 app, animal_facts = create_app()
+
+CORS(app)
 
 # Get all the animal facts
 @app.route('/facts', methods=['GET'])
